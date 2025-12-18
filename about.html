@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Me</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Arial', sans-serif; }
+  body { background: #fafafa; color: #111; padding: 32px; }
+
+  a { text-decoration: none; color: inherit; }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+  .logo { font-size: 2rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+  .nav { display: flex; gap: 12px; }
+  .nav a {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #111;
+    border-radius: 6px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .nav a:hover { transform: translateY(-3px); opacity: 0.7; }
+
+  .about {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  }
+  .about-img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  .about h1 {
+    font-size: 3rem;
+    margin-bottom: 24px;
+    font-weight: 700;
+  }
+  .about p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  @media (max-width: 600px) {
+    .about h1 { font-size: 2.2rem; }
+    .about p { font-size: 1.1rem; }
+    .about-img { width: 180px; height: 180px; }
+    body { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-wrap">
+    <a href="index.html" class="logo">Luciana</a>
+  </div>
+  <nav class="nav">
+    <a href="about.html" aria-label="About"></a>
+    <a href="arcade.html" aria-label="Arcade"></a>
+  </nav>
+</header>
+
+<section class="about">
+  <img src="images/jeff.jpeg" alt="My Profile" class="about-img">
+  <h1>About Me</h1>
+  <p>Hello! My name is Luciana. I am a Product Design 3rd year major and I love creating interactive projects. I enjoy exploring mostly traditional mediums but I love the expansive nature that digital mediums offer to express creativity.</p>
+  <p>I hope to assist in assistive and interactive design that eases and improves the lives of others!</p>
+  <p>Outside of design, I extensively enjoy traveling, cooking with my family, and exploring different cultures. I am  studying in Denmark next semester and am always looking for new inspirations to incorporate into my work. I love meeting new people and learning from their experiences. I hope that I can do the same for others!</p>
+</section>
+
+</body>
+</html>

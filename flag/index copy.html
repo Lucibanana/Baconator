@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flags with HTML Shapes</title>
+<style>
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  padding: 40px;
+  background: #f0f0f0;
+  font-family: sans-serif;
+}
+
+.flag-japan {
+  width: 300px;
+  height: 200px;
+  background: white;
+  border: none;
+  position: relative;
+}
+.flag-japan .circle {
+  width: 120px;
+  height: 120px;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.flag-colombia {
+  width: 300px;
+  height: 180px;
+  border: none;
+}
+.flag-colombia div {
+  width: 100%;
+  height: 60px;
+}
+.flag-colombia .yellow { background: #FFD100; }
+.flag-colombia .blue { background: #003893; }
+.flag-colombia .red { background: #CE1126; }
+
+.flag-brazil {
+  width: 300px;
+  height: 210px;
+  background: #009B3A;
+  position: relative;
+  border: none;
+}
+.flag-brazil .diamond {
+  width: 180px;
+  height: 180px;
+  background: #FFCC29;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+.flag-brazil .blue-circle {
+  width: 90px;
+  height: 90px;
+  background: #002776;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.flag-brazil .white-band {
+  width: 100px;
+  height: 10px;
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-25deg);
+}
+</style>
+</head>
+<body>
+
+<h2>Japan</h2>
+<div class="flag-japan">
+  <div class="circle"></div>
+</div>
+
+<h2>Colombia</h2>
+<div class="flag-colombia">
+  <div class="yellow"></div>
+  <div class="blue"></div>
+  <div class="red"></div>
+</div>
+
+<h2>Brazil</h2>
+<div class="flag-brazil">
+  <div class="diamond"></div>
+  <div class="blue-circle"></div>
+  <div class="white-band"></div>
+</div>
+
+</body>
+</html>

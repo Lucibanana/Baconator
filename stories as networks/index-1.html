@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>His End and His Beginning</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Jacquard+24&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0e0e0e;
+      color: #f5f5f5;
+      font-family: 'Jacquard 24', serif;
+      line-height: 1.7;
+      font-size: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      transition: background-color 2s ease;
+    }
+
+    main {
+      width: 90%;
+      max-width: 700px;
+      padding: 3rem 1rem;
+    }
+
+    h1 {
+      font-family: 'Uncial Antiqua', monospace;
+      font-size: 2.2rem;
+      text-align: center;
+      letter-spacing: 3px;
+      color: #6965eb;
+      margin-bottom: 2rem;
+    }
+
+    h1 a {
+      color: #b3a3ff;
+      text-decoration: none;
+      transition: color 0.5s ease;
+    }
+
+    h1 a:hover {
+      color: #ff6666;
+      letter-spacing: 5px;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      text-indent: 1.5em;
+    }
+
+    .fading {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.3s ease, transform 1.3s ease;
+    }
+
+    .fading.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    em {
+      font-family: 'Uncial Antiqua', italic;
+      color: #937dff;
+      font-style: normal;
+    }
+
+    a {
+      color: #5c41f2;
+      text-decoration: none;
+      border-bottom: none;
+      transition: opacity 0.5s;
+    }
+
+    a:hover {
+      opacity: 0.7;
+    }
+
+    .flash-bg {
+      animation: flash 1.2s ease;
+    }
+
+    @keyframes flash {
+      0% { background-color: #ff0000; }
+      100% { background-color: #0e0e0e; }
+    }
+
+    .reality-shift {
+      filter: invert(1) hue-rotate(140deg) contrast(180%);
+      transition: filter 2s ease;
+    }
+
+    #shift {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0f0707;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'Uncial Antiqua';
+      opacity: 0.8;
+      z-index: 9999;
+    }
+
+    #shift:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 1200px) { body { background-color: #2a0000; } }
+    @media (max-width: 1000px) { body { background-color: #4a0000; } }
+    @media (max-width: 800px) { body { background-color: #4a0000; } }
+    @media (max-width: 600px)  { body { background-color: #7a0000; } }
+    @media (max-width: 400px)  { body { background-color: #b30000; } }
+    @media (max-width: 250px)  { body { background-color: #e60000; } }
+    @media (max-width: 100px)  { body { background-color: #ff2020; } }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <h1>His <a href="#beginning">end</a> and his <a href="#end"> beginnings</a></h1>
+
+    <p>The death throes done, he lay now <em>alone</em>—alone and broken and rejected—and then he sank into sleep.</p>
+
+    <p class="fading">When he awoke, there awaited him his commonplace habits and the places of his everyday existence. He told himself that he shouldn't think too much about the night before, and, cheered by that resolve, he unhurriedly dressed for work.</p>
+
+    <p>At the office, he got through his duties passably well, though with that uneasy sense of repeating things he'd already done. He seemed to notice that the others turned their eyes away; perhaps they already knew that he was dead.</p>
+
+    <p class="fading">That night the nightmares began; he was left without the slightest memory of them—just the fear that they'd return.</p>
+
+    <p><a href="#awakening">He feared the return.</a></p>
+
+    <p id="awakening" class="fading">In time, that fear prevailed; it came between him and the page he was supposed to write, the books he tried to read. Letters would crawl about on the page like ants; faces, familiar faces, gradually blurred and faded, objects and people slowly abandoned him.</p>
+
+    <p>He never suspected the truth—it burst upon him suddenly. He realized that he was unable to remember the shapes, sounds, and colors of his dreams; there were no shapes, colors, or sounds, nor were the dreams dreams. <em>They were his reality.</em></p>
+
+    <p class="fading">All horror lay in their newness and their splendor. He had deserved grace—he had earned it; every second since the moment of his death, he had been in heaven.</p>
+
+    <p><a href="#top">return</a></p>
+  </main>
+
+  <button id="shift">Return to Reality</button>
+
+  <script>
+    const faders = document.querySelectorAll('.fading');
+
+    const appearOptions = {
+      threshold: 0.3
+    };
+
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+
+    const titleLinks = document.querySelectorAll("h1 a");
+
+    titleLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        document.body.classList.add("flash-bg");
+        setTimeout(() => {
+          document.body.classList.remove("flash-bg");
+        }, 1200);
+      });
+    });
+
+    document.getElementById("shift").onclick = () => {
+      document.body.classList.toggle("reality-shift");
+    };
+  </script>
+
+</body>
+</html>
